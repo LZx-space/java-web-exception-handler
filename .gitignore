@@ -1,0 +1,4 @@
+# 项目排除路径
+/.gradle/
+/response-status-client/build/
+/response-status-client/build/classes/java/main/
