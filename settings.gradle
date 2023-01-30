@@ -1,5 +1,5 @@
-rootProject.name = 'java-web-response-status'
-include 'response-status-server'
-include 'response-status-client'
-include 'response-status-client-spring-boot-starter'
+rootProject.name = 'java-web-exception-handler'
+include 'exception-handler-client'
+include 'exception-handler-client-spring-boot-starter'
+include 'exception-handler-server'
 

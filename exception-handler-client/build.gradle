@@ -1,0 +1,41 @@
+apply plugin: 'maven-publish'
+
+version = '1.0-SNAPSHOT'
+
+jar {
+    archiveClassifier.set("")
+    manifest {
+        attributes(
+                "Implementation-Title": archiveFileName,
+                "Implementation-Version": archiveVersion
+        )
+    }
+}
+
+bootJar.enabled = false
+
+java {
+    withSourcesJar()
+}
+
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter-web'
+    api 'org.springframework.boot:spring-boot-starter-cache'
+    compileOnly 'org.springframework.cloud:spring-cloud-commons:4.0.0'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+        }
+    }
+}
