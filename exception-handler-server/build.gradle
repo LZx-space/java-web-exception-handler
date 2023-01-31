@@ -3,7 +3,6 @@ version = '1.0-SNAPSHOT'
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.lzx.java:exception-handler-client-spring-boot-starter:1.0-SNAPSHOT'
     runtimeOnly 'org.postgresql:postgresql'
 }
 

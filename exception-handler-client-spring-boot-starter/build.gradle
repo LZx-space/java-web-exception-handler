@@ -15,7 +15,6 @@ ext {
 dependencies {
     api project(":exception-handler-client")
     api "com.github.ben-manes.caffeine:caffeine:${caffeineVersion}"
-    api 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
     api "org.springframework.cloud:spring-cloud-commons"
 }
 
@@ -27,7 +26,8 @@ dependencyManagement {
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        maven(MavenPublication) {
+            from components.java
             versionMapping {
                 usage('java-api') {
                     fromResolutionOf('runtimeClasspath')
@@ -36,7 +36,6 @@ publishing {
                     fromResolutionResult()
                 }
             }
-            from components.java
         }
     }
 }
